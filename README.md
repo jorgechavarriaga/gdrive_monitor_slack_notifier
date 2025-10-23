@@ -4,6 +4,7 @@
 [![Slack](https://img.shields.io/badge/Slack-Webhooks-green?logo=slack)](https://api.slack.com/messaging/webhooks)
 [![Google Drive API](https://img.shields.io/badge/Google%20Drive-API-red?logo=google-drive)](https://developers.google.com/drive)
 
+
 A minimal and production‑ready Python application to monitor any folder in Google Drive (via Drive API) and send Slack notifications for detected changes, including:
 
 - ✅ File creation / modification
@@ -222,7 +223,14 @@ First run will trigger browser auth to create token.json.
 
 ### 👨‍💻 Author
 
-👤 **Jorge Chavarriaga**  
-*Full Stack Developer – ChavaZystem Tech*  
-🌐 [www.chavazystem.tech](https://chavazystem.tech)  
-🔗 [LinkedIn](https://www.linkedin.com/in/jorge-chavarriaga)
+<div style="display: flex; align-items: center; gap: 16px;">
+  <img src="https://www.chavazystem.tech/assets/images/jorgechavarriaga.jpeg" 
+      alt="Jorge Chavarriaga" 
+      style="height: 8.5rem; border-radius: 8px;" />
+  <div>
+    <p><strong>👤 Jorge Chavarriaga</strong><br/>
+    Full Stack Developer – ChavaZystem Tech<br/><br/>
+    🌐 <a href="https://chavazystem.tech">www.chavazystem.tech</a><br/>
+    🔗 <a href="https://www.linkedin.com/in/jorge-chavarriaga">LinkedIn</a></p>
+  </div>
+</div>
