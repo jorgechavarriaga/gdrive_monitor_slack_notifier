@@ -45,7 +45,7 @@ def run_monitor():
             req = service.changes().list(
                 pageToken=page_token,
                 includeRemoved=True,
-                includeItemsFromAllDrives=True,
+                includeItemsFromAllDrives=False,
                 supportsAllDrives=True,
                 pageSize=100,
                 fields=(
@@ -64,10 +64,25 @@ def run_monitor():
                     if removed or not file:
                         continue
 
+                    # Skip false positives: when modifiedTime is older than the reported change time
+                    modified_raw = file.get("modifiedTime", "")
+                    change_raw = ch.get("time", "")
+
+                    try:
+                        modified_time = datetime.fromisoformat(modified_raw.replace("Z", "+00:00"))
+                        change_time = datetime.fromisoformat(change_raw.replace("Z", "+00:00"))
+                        # Only skip if clearly an unchanged file (e.g., ghost updates)
+                        # Do not skip if this is the first time we see this file (newly created)
+                        if file.get("id") in path_index and modified_time < change_time:
+                            log.info(f"[SKIP] Ignoring likely false positive for {file.get('name')}")
+                            continue
+
+                    except Exception as e:
+                        log.warning(f"[WARN] Failed to parse timestamps for {file.get('name')}: {e}")
+
                     is_folder = file.get("mimeType") == "application/vnd.google-apps.folder"
                     event = "TRASHED" if file.get("trashed") else "MODIFIED"
                     change_type = "FOLDER" if is_folder else "FILE"
-
 
                     if is_descendant(service, file, FOLDER_ID, parent_tree_cache):
                         event = "TRASHED" if file.get("trashed") else "MODIFIED"
@@ -92,7 +107,7 @@ def run_monitor():
                         )
 
                         send_slack_message(slack_msg)
-                        log.info(f"[{event}]\n{when} ({LOCAL_ZONE})\nTYPE: {change_type}\nPATH: {path}\nOWNER: {owner}\nMODIFIED BY: {last_mod_user}\n\n")
+                        log.info(f"\n[{event}]\n{when} ({LOCAL_ZONE})\nTYPE: {change_type}\nPATH: {path}\nOWNER: {owner}\nMODIFIED BY: {last_mod_user}\n\n")
 
 
                 # Update tokens for next poll
