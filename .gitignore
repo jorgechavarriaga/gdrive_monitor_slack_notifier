@@ -1,0 +1,74 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+*.envrc
+
+# Local environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python development artifacts
+*.log
+*.pot
+*.mo
+*.sqlite3
+*.db
+*.pid
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# pyproject.toml cache
+*.lock
+
+# Testing artifacts
+htmlcov/
+.coverage
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+.cache
+pytest_cache/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor-specific
+.vscode/
+.idea/
+*.swp
+
+# Google credentials and tokens
+credentials.json
+token.json
+
+# Docker-related
+*.tar
+*.gz
+*.img
+.dockerignore
+
+# Logs and state files
+*.log
+*.bak
+drive_watch_state.json
+
+# Others
+*.bak

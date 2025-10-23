@@ -1,0 +1,13 @@
+# Google Drive API
+google-api-python-client==2.107.0
+google-auth==2.23.0
+google-auth-oauthlib==1.0.0
+
+# Slack integration
+requests==2.31.0
+
+# Env var management
+python-dotenv==1.0.0
+
+# Timezone handling
+pytz==2023.3.post1

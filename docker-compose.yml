@@ -1,0 +1,17 @@
+services:
+  drive-watcher:
+    image: python:3.11-slim
+    container_name: drive-watcher
+    working_dir: /app
+    volumes:
+      - .:/app  
+      - ./credentials.json:/app/credentials.json
+      - ./token.json:/app/token.json
+      - ./drive_watch_state.json:/app/drive_watch_state.json
+      - ./.env:/app/.env
+    command: >
+      sh -c "pip install --no-cache-dir -r requirements.txt &&
+             python main.py"
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
