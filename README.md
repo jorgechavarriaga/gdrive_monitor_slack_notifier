@@ -223,14 +223,16 @@ First run will trigger browser auth to create token.json.
 
 ### 👨‍💻 Author
 
-<div style="display: flex; align-items: center; gap: 16px;">
-  <img src="https://www.chavazystem.tech/assets/images/jorgechavarriaga.jpeg" 
-      alt="Jorge Chavarriaga" 
-      style="height: 8.5rem; border-radius: 8px;" />
-  <div>
-    <p><strong>👤 Jorge Chavarriaga</strong><br/>
-    Full Stack Developer – ChavaZystem Tech<br/><br/>
-    🌐 <a href="https://chavazystem.tech">www.chavazystem.tech</a><br/>
-    🔗 <a href="https://www.linkedin.com/in/jorge-chavarriaga">LinkedIn</a></p>
-  </div>
-</div>
+<table>
+  <tr>
+    <td>
+      <img src="https://www.chavazystem.tech/assets/images/jorgechavarriaga.jpeg" alt="Jorge Chavarriaga" height="120" style="border-radius: 8px;" />
+    </td>
+    <td style="vertical-align: top; padding-left: 15px;">
+      <strong>👤 Jorge Chavarriaga</strong><br/>
+      Full Stack Developer – ChavaZystem Tech<br/><br/>
+      🌐 <a href="https://chavazystem.tech">www.chavazystem.tech</a><br/>
+      🔗 <a href="https://www.linkedin.com/in/jorge-chavarriaga">LinkedIn</a>
+    </td>
+  </tr>
+</table>
